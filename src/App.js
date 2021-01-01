@@ -13,6 +13,9 @@ import {
   createMuiTheme
 } from '@material-ui/core/styles';
 import { green, orange } from '@material-ui/core/colors';
+import 'fontsource-roboto';
+
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
@@ -26,6 +29,11 @@ const useStyles = makeStyles({
 });
 
 const theme = createMuiTheme({
+  typography: {
+    h2: {
+      fontSize: 36
+    }
+  },
   palette: {
     primary: {
       main: green[400]
@@ -68,6 +76,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <header className="App-header">
+          <Typography variant="h2" component="div">
+            Welcome to MUI
+          </Typography>
+          <Typography variant="body1">Learn how to use Material UI</Typography>
           <ButtonStyled />
           <TextField variant="outlined" color="secondary" type="date" />
           <TextField
