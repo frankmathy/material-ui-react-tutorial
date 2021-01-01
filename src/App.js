@@ -6,6 +6,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import TextField from '@material-ui/core/TextField';
 
 function CheckboxExample() {
   const [checked, setChecked] = React.useState(true);
@@ -33,6 +34,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <TextField variant="outlined" color="secondary" type="date" />
+        <TextField
+          variant="filled"
+          color="secondary"
+          type="time"
+          label="Time"
+        />
+        <TextField
+          variant="filled"
+          color="secondary"
+          type="email"
+          label="Mail"
+          placeholder="test@test.com"
+        />
         <CheckboxExample />
         <ButtonGroup variant="contained" color="primary">
           <Button startIcon={<SaveIcon />} size="large">
