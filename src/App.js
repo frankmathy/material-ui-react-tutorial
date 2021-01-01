@@ -15,6 +15,8 @@ function CheckboxExample() {
         control={
           <Checkbox
             checked={checked}
+            icon={<DeleteIcon />}
+            checkedIcon={<SaveIcon />}
             onChange={e => setChecked(e.target.checked)}
             inputProps={{
               'aria-label': 'secondary checkbox'
