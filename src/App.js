@@ -12,10 +12,19 @@ import {
   ThemeProvider,
   createMuiTheme
 } from '@material-ui/core/styles';
-import { green, orange } from '@material-ui/core/colors';
+import { blue, orange } from '@material-ui/core/colors';
 import 'fontsource-roboto';
 
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
   root: {
@@ -36,7 +45,7 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: green[400]
+      main: blue[400]
     },
     secondary: {
       main: orange[400]
@@ -74,38 +83,64 @@ function CheckboxExample() {
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <header className="App-header">
-          <Typography variant="h2" component="div">
-            Welcome to MUI
-          </Typography>
-          <Typography variant="body1">Learn how to use Material UI</Typography>
-          <ButtonStyled />
-          <TextField variant="outlined" color="secondary" type="date" />
-          <TextField
-            variant="filled"
-            color="secondary"
-            type="time"
-            label="Time"
-          />
-          <TextField
-            variant="filled"
-            color="secondary"
-            type="email"
-            label="Mail"
-            placeholder="test@test.com"
-          />
-          <CheckboxExample />
-          <ButtonGroup variant="contained" color="primary">
-            <Button startIcon={<SaveIcon />} size="large">
-              Save
-            </Button>{' '}
-            <Button startIcon={<DeleteIcon />} size="large" color="secondary">
-              Discard
-            </Button>
-          </ButtonGroup>
-        </header>
-      </div>
+      <Container maxWidth="md">
+        <div className="App">
+          <header className="App-header">
+            <AppBar>
+              <Toolbar>
+                <IconButton>
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="h6">MUI Theming</Typography>
+                <Button>Login</Button>
+              </Toolbar>
+            </AppBar>
+            <Typography variant="h2" component="div">
+              Welcome to MUI
+            </Typography>
+            <Typography variant="body1">
+              Learn how to use Material UI
+            </Typography>
+            <ButtonStyled />
+
+            <Grid container spacing={2} justify="center">
+              <Grid item xs={3} sm={6}>
+                <Paper style={{ height: 75, width: '100%' }} />
+              </Grid>
+              <Grid item xs={3} sm={6}>
+                <Paper style={{ height: 75, width: '100%' }} />
+              </Grid>
+              <Grid item xs={3} sm={6}>
+                <Paper style={{ height: 75, width: '100%' }} />
+              </Grid>
+            </Grid>
+
+            <TextField variant="outlined" color="secondary" type="date" />
+            <TextField
+              variant="filled"
+              color="secondary"
+              type="time"
+              label="Time"
+            />
+            <TextField
+              variant="filled"
+              color="secondary"
+              type="email"
+              label="Mail"
+              placeholder="test@test.com"
+            />
+            <CheckboxExample />
+            <ButtonGroup variant="contained" color="primary">
+              <Button startIcon={<SaveIcon />} size="large">
+                Save
+              </Button>{' '}
+              <Button startIcon={<DeleteIcon />} size="large" color="secondary">
+                Discard
+              </Button>
+            </ButtonGroup>
+          </header>
+        </div>
+      </Container>
     </ThemeProvider>
   );
 }
