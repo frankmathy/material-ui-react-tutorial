@@ -7,8 +7,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
-
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  ThemeProvider,
+  createMuiTheme
+} from '@material-ui/core/styles';
+import { green, orange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   root: {
@@ -18,6 +22,17 @@ const useStyles = makeStyles({
     marginBottom: 15,
     color: 'white',
     padding: '5px 30px'
+  }
+});
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: green[400]
+    },
+    secondary: {
+      main: orange[400]
+    }
   }
 });
 
@@ -50,34 +65,36 @@ function CheckboxExample() {
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ButtonStyled />
-        <TextField variant="outlined" color="secondary" type="date" />
-        <TextField
-          variant="filled"
-          color="secondary"
-          type="time"
-          label="Time"
-        />
-        <TextField
-          variant="filled"
-          color="secondary"
-          type="email"
-          label="Mail"
-          placeholder="test@test.com"
-        />
-        <CheckboxExample />
-        <ButtonGroup variant="contained" color="primary">
-          <Button startIcon={<SaveIcon />} size="large">
-            Save
-          </Button>{' '}
-          <Button startIcon={<DeleteIcon />} size="large" color="secondary">
-            Discard
-          </Button>
-        </ButtonGroup>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <header className="App-header">
+          <ButtonStyled />
+          <TextField variant="outlined" color="secondary" type="date" />
+          <TextField
+            variant="filled"
+            color="secondary"
+            type="time"
+            label="Time"
+          />
+          <TextField
+            variant="filled"
+            color="secondary"
+            type="email"
+            label="Mail"
+            placeholder="test@test.com"
+          />
+          <CheckboxExample />
+          <ButtonGroup variant="contained" color="primary">
+            <Button startIcon={<SaveIcon />} size="large">
+              Save
+            </Button>{' '}
+            <Button startIcon={<DeleteIcon />} size="large" color="secondary">
+              Discard
+            </Button>
+          </ButtonGroup>
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
